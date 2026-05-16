@@ -11,21 +11,7 @@ Human error and societal polarization are heavily exacerbated by environmental a
 - **Algorithmic Neutralization & NLP:** Leveraging the Google Gemini API with structured system prompting to run multi-layered linguistic analysis—parsing political bias, executing real-time cross-reference fact-checking, and generating objective truth matrices.
 - **Bi-Directional Interactive Layer:** Developed a secondary user-engagement funnel using a containerized `Streamlit` architecture, transitioning users from static analysis to a dynamic 1-on-1 argumentative chat environment with the model.
 
-The core technical challenge of this project was processing heavy multimedia data (video/audio) and running large language model inferences without introduces crippling latency or relying on expensive, privacy-invasive cloud video pipelines.
-To solve this, I designed a decoupled, hybrid-runtime architecture (look at architecture.png for more info)
-
-1. The Frontend (Chrome Extension)
-Contextual Injection: A lightweight JavaScript content script injects a non-intrusive UI overlay directly into the YouTube DOM, dynamically tracking video states.
-Asynchronous Communication: Dispatches non-blocking API requests to the local loopback address (localhost:3000), ensuring the browser UI never freezes during heavy computing cycles.
-
-2. The Middleware (Node.js Server)
-Acts as the orchestration layer, managing session states and utilizing Node's child_process module to safely trigger and manage Python-based machine learning scripts without thread-blocking.
-
-3. The Local ML Pipeline (Python, yt-dlp, faster-whisper)
-Optimized Audio Extraction: Uses yt-dlp to surgically extract audio streams without downloading full video payloads, drastically reducing network I/O.
-Localized Automatic Speech Recognition (ASR): Utilizes faster-whisper (a highly optimized C++ implementation of OpenAI's Whisper model) to compute fast, highly accurate timestamps and text transcripts locally on the machine.
-
-4. The Synthesis Engine (Gemini API & Streamlit)
+Gemini API & Streamlit
 Dynamic Algorithmic Prompting: Transcripts are fed into the Gemini API using specialized, zero-shot system instructions designed to classify content into three distinct analytical domains:
 Political Content: Neutralizes partisan bias, emotional manipulation, and rhetorical fallacies.
 Informative Content: Isolates verifiable assertions for cross-reference and automated fact-checking.
