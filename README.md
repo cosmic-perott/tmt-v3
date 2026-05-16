@@ -1,37 +1,68 @@
 # The Media Tranquilizer #
 **Value Truth, Not Noise**
-The AI-powered web extension that filters out media clutter, biased opinions, and misinformation—delivering only the objective truth you need.
+The Media Tranquilizer (TMT) is an AI-powered, cross-runtime web extension engineered to mitigate the cognitive hazards of digital disinformation. By combining lightweight frontend injection with a localized, multi-threaded AI pipeline, TMT strips away media bias, sensationalism, and logical fallacies from video content in real-time—delivering objective truth directly to the user.
 
-## How it works ##
-It works by connecting the front end that is on the web with the servers that are running locally.
-It uses open source libraries such as yt-dlp and faster-whisper to analyse videos and extract transcripts.
-It uses Gemini API to generate the AI responses and it uses streamlit to create an environment for the AI to chat with the user.
+## Inspiration ##
+Human error and societal polarization are heavily exacerbated by environmental and informational "noise." Whether it is the physical hazard of dense highway fog or the psychological toll of digital echo chambers, the underlying systemic flaw is the same: people cannot make sound decisions when they cannot see clearly. TMT was built to function as an algorithmic filter for the internet—algorithmic clarity replacing systemic uncertainty.
 
-## How to use it ##
+## Architecture ##
+The core technical challenge of this project was processing heavy multimedia data (video/audio) and running large language model inferences without introduces crippling latency or relying on expensive, privacy-invasive cloud video pipelines.
+To solve this, I designed a decoupled, hybrid-runtime architecture (look at architecture.png for more info)
 
-### 1 Setting up the extension ###
-**NOTE: This extension is not available on the Google Chrome Webstore. Therefore, in order to use it, you must download the repository as a ZIP file and run it locally**
+1. The Frontend (Chrome Extension)
+Contextual Injection: A lightweight JavaScript content script injects a non-intrusive UI overlay directly into the YouTube DOM, dynamically tracking video states.
+Asynchronous Communication: Dispatches non-blocking API requests to the local loopback address (localhost:3000), ensuring the browser UI never freezes during heavy computing cycles.
 
-BEFORE YOU DOWNLOAD THE ZIP: make sure you have node.js installed
+2. The Middleware (Node.js Server)
+Acts as the orchestration layer, managing session states and utilizing Node's child_process module to safely trigger and manage Python-based machine learning scripts without thread-blocking.
 
-Download the ZIP file and open in desired IDE (e.g VSCode) or clone the git into the IDE
-Then, open terminal and run
-``` node server.js ```
+3. The Local ML Pipeline (Python, yt-dlp, faster-whisper)
+Optimized Audio Extraction: Uses yt-dlp to surgically extract audio streams without downloading full video payloads, drastically reducing network I/O.
+Localized Automatic Speech Recognition (ASR): Utilizes faster-whisper (a highly optimized C++ implementation of OpenAI's Whisper model) to compute fast, highly accurate timestamps and text transcripts locally on the machine.
 
-After that is running, go to Google Chrome and go to the website
-```chrome://extensions``` (yes this is a valid URL — I didn't make the rules)
+4. The Synthesis Engine (Gemini API & Streamlit)
+Dynamic Algorithmic Prompting: Transcripts are fed into the Gemini API using specialized, zero-shot system instructions designed to classify content into three distinct analytical domains:
+Political Content: Neutralizes partisan bias, emotional manipulation, and rhetorical fallacies.
+Informative Content: Isolates verifiable assertions for cross-reference and automated fact-checking.
+General Content: Injects crucial historical/cultural context missing from the baseline video.
+Interactive Deep-Dive: If a user wants to audit the AI's conclusions, the state transitions smoothly into a localized Streamlit application, facilitating a stateful, 1-to-1 conversational Q&A session with the AI regarding the source data.
 
-Then upload the files in the IDE
+## Key Features ##
+Real-Time De-biasing: Instant generation of a neutral summary stripped of algorithmic sensationalism.
 
-### 2 Using the extension ###
+Localized Sovereignty: High-privacy data pipeline—video parsing and transcription happen entirely on the user's local machine.
 
-Go to ```youtube.com``` and click on any video.
-you should see a red and blue icon appear at the bottom right corner of your webpage.
+Cognitive Safety Net: Shifts user behavior from passive content consumption to active, dialectic cross-examination via the Streamlit chat portal.
 
-Make sure you are watching a video before clicking it.
+## Installation and Usage Instructions ##
+Because this project prioritizes user data sovereignty and circumvents centralized cloud storage, it runs entirely on a local infrastructure.
 
-**For Best Performance (and to not break the program), only click it once**
-**if you opened it once, closed it, and then re opened it again it will take longer for the content to load**
+Prerequisites
+Node.js (v16+)
+Python (v3.8+)
+A Gemini API Key set in your environment variables.
+
+Step 1: Clone and Initialize Backend
+git clone https://github.com/cosmic-perott/tmt-v3.git
+cd tmt-v3
+
+Install Node orchestration dependencies
+npm install
+
+Initialize the local API gateway
+node server.js
+(Note: Ensure your Python environment has dependencies installed via pip install faster-whisper yt-dlp streamlit google-generativeai).
+
+Step 2: Load the Unpacked Browser Extension
+Open Google Chrome and navigate to chrome://extensions/.
+
+Enable Developer mode via the toggle in the upper-right corner.
+
+Click Load unpacked in the upper-left corner.
+
+Select the root folder of this repository
+
+**For Best Performance, only click it once**
 
 Once you have clicked the icon and the content has loaded, you will see an AI's response regarding the video's content.
 This will include a neutralisation of biases and opinions (if it is a political video), fact checking (if it is an informative video), and providing additional information which would help users understand the content to a better degree(if the video does not fall into either category)
@@ -40,7 +71,12 @@ you can click on the entry box below and ask the AI follow up questions.
 this will direct you to a website made with streamlit where you can have a 1 to 1 conversation with the AI about the given topic.
 
 
+## Reflections on Project Made After Hackathon ##
+Developing TMT under the intense constraints of a hackathon forced critical engineering trade-offs:
+
+State Synchronization: Managing asynchronous state handshakes between a browser extension, a Node server, a Python script, and a separate Streamlit port required rigorous attention to error handling and race conditions.
+
+Resource Management: Running local ASR models (faster-whisper) requires careful CPU/GPU allocation. Future iterations will include multi-threading optimization to prevent local server bottlenecks if multiple videos are processed concurrently.
 
 
-
-***All code, content, writings, images created by cosmic-perott for PennApps XXVI***
+***All architectural design, system integration, frontend/backend code, and documentation were conceived, structured, and authored end-to-end by cosmic-perott for the PennApps XXVI hackathon.***
