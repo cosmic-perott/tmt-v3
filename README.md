@@ -36,7 +36,9 @@ Cognitive Safety Net: Shifts user behavior from passive content consumption to a
 
 ## Installation and Usage Instructions ##
 **example video of usage can be found at https://www.youtube.com/watch?v=APhDK69jBbI [MUTED]**
+
 **another video of usage can be found at https://www.youtube.com/watch?v=7uPptG2c2-s [WITH VOICE]**
+
 Because this project prioritizes user data sovereignty and circumvents centralized cloud storage, it runs entirely on a local infrastructure.
 
 Prerequisites
