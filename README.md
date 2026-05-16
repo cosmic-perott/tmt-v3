@@ -5,7 +5,12 @@ The Media Tranquilizer (TMT) is an AI-powered, cross-runtime web extension engin
 ## Inspiration ##
 Human error and societal polarization are heavily exacerbated by environmental and informational "noise." Whether it is the physical hazard of dense highway fog or the psychological toll of digital echo chambers, the underlying systemic flaw is the same: people cannot make sound decisions when they cannot see clearly. TMT was built to function as an algorithmic filter for the internet—algorithmic clarity replacing systemic uncertainty.
 
-## Architecture ##
+## System Architecture & Technical Execution
+- **Frontend Integration:** Engineered a Google Chrome Developer Extension using native JavaScript and custom DOM manipulation, injecting an interactive UI overlay directly onto active YouTube video elements.
+- **Asynchronous Audio Pipeline:** Automated automated media ingestion via `yt-dlp` paired with an optimized `faster-whisper` CoreML/CUDA pipeline to instantly extract local high-fidelity audio transcripts from video streaming packets.
+- **Algorithmic Neutralization & NLP:** Leveraging the Google Gemini API with structured system prompting to run multi-layered linguistic analysis—parsing political bias, executing real-time cross-reference fact-checking, and generating objective truth matrices.
+- **Bi-Directional Interactive Layer:** Developed a secondary user-engagement funnel using a containerized `Streamlit` architecture, transitioning users from static analysis to a dynamic 1-on-1 argumentative chat environment with the model.
+
 The core technical challenge of this project was processing heavy multimedia data (video/audio) and running large language model inferences without introduces crippling latency or relying on expensive, privacy-invasive cloud video pipelines.
 To solve this, I designed a decoupled, hybrid-runtime architecture (look at architecture.png for more info)
 
