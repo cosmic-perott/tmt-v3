@@ -1,4 +1,5 @@
 # The Media Tranquilizer #
+***DevPost Link: https://devpost.com/software/the-media-tranquilizer***
 **Value Truth, Not Noise**
 The Media Tranquilizer (TMT) is an AI-powered, cross-runtime web extension engineered to mitigate the cognitive hazards of digital disinformation. By combining lightweight frontend injection with a localized, multi-threaded AI pipeline, TMT strips away media bias, sensationalism, and logical fallacies from video content in real-time—delivering objective truth directly to the user.
 
