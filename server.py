@@ -28,7 +28,7 @@ def get_transcript(url):
     tt = tts.split("B/s") 
 
     
-    genai.configure(api_key="AIzaSyDMHYkly-Ms5lTQ0bZRADM1Um_J9I53o1I")
+    genai.configure(api_key=[ENTER_API_KEY_HERE])
     generation_config = {
     "temperature": 1,
     "top_p": 0.95,
