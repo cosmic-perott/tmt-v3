@@ -1,5 +1,6 @@
 # The Media Tranquilizer #
-<img width="458" height="123" alt="Screenshot 2026-05-25 at 8 45 21 PM" src="https://github.com/user-attachments/assets/faa55a82-af73-43ee-ab24-321004f70a47" />
+<img width="500" height="140" alt="a5175e1fd2f744af80a40cc4467e4e5b" src="https://github.com/user-attachments/assets/57de28c6-5acf-4139-8555-cccadb4aded5" />
+
 
 ***DevPost Link: https://devpost.com/software/the-media-tranquilizer***
 ###
