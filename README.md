@@ -1,5 +1,12 @@
 # The Media Tranquilizer #
+<img width="458" height="123" alt="Screenshot 2026-05-25 at 8 45 21 PM" src="https://github.com/user-attachments/assets/faa55a82-af73-43ee-ab24-321004f70a47" />
+
 ***DevPost Link: https://devpost.com/software/the-media-tranquilizer***
+###
+<img width="688" height="99" alt="Screenshot 2026-05-25 at 8 44 39 PM" src="https://github.com/user-attachments/assets/87cd7348-8ea4-4bfc-8239-46ed030ad44f" />
+
+***All architectural design, system integration, frontend/backend code, and documentation were conceived, structured, and authored end-to-end by cosmic-perott for the PennApps XXVI hackathon.***
+
 
 **Value Truth, Not Noise**
 The Media Tranquilizer (TMT) is an AI-powered, cross-runtime web extension engineered to mitigate the cognitive hazards of digital disinformation. By combining lightweight frontend injection with a localized, multi-threaded AI pipeline, TMT strips away media bias, sensationalism, and logical fallacies from video content in real-time—delivering objective truth directly to the user.
@@ -74,6 +81,3 @@ Developing TMT under the intense constraints of a hackathon forced critical engi
 State Synchronization: Managing asynchronous state handshakes between a browser extension, a Node server, a Python script, and a separate Streamlit port required rigorous attention to error handling and race conditions.
 
 Resource Management: Running local ASR models (faster-whisper) requires careful CPU/GPU allocation. Future iterations will include multi-threading optimization to prevent local server bottlenecks if multiple videos are processed concurrently.
-
-
-***All architectural design, system integration, frontend/backend code, and documentation were conceived, structured, and authored end-to-end by cosmic-perott for the PennApps XXVI hackathon.***
