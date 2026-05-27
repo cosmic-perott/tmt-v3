@@ -10,7 +10,7 @@
 
 
 **Value Truth, Not Noise**
-The Media Tranquilizer (TMT) is an AI-powered, cross-runtime web extension engineered to mitigate the cognitive hazards of digital disinformation. By combining lightweight frontend injection with a localized, multi-threaded AI pipeline, TMT strips away media bias, sensationalism, and logical fallacies from video content in real-time—delivering objective truth directly to the user.
+The Media Tranquilizer (TMT) is an AI-powered, cross-runtime web extension engineered to mitigate the cognitive hazards of digital disinformation. By combining lightweight frontend injection with a localized, multi-threaded AI pipeline, TMT strips away media bias, sensationalism, and logical fallacies from video content in real-time—delivering objective truth directly to the user
 
 ## Inspiration ##
 Human error and societal polarization are heavily exacerbated by environmental and informational "noise." Whether it is the physical hazard of dense highway fog or the psychological toll of digital echo chambers, the underlying systemic flaw is the same: people cannot make sound decisions when they cannot see clearly. TMT was built to function as an algorithmic filter for the internet—algorithmic clarity replacing systemic uncertainty.
